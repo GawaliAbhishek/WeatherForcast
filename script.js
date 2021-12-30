@@ -59,11 +59,21 @@ function getWeather(){
   .then(a => a.json())
   .then(response => {
     console.log(response);
+    getData2(response);
      changeData(response);
        
   });
   
 }
+
+function getData2(response){
+  fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+response.location.lat+"&lon="+response.location.lon+"&exclude=hourly,minutely&units=metric&appid=49cc8c821cd2aff9af04c9f98c36eb74")
+  .then(a => a.json() )
+  .then(response2 =>{
+    console.log(response2);
+  });
+}
+
 // calling getWeather() function
 getWeather();
 
