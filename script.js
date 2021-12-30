@@ -55,7 +55,7 @@ so Accordingly changeData Function will take response from Api and change the Da
 function getWeather(){
   var city = "shegaon";
   var units ="m"
-  fetch("http://api.weatherstack.com/current?access_key=61e6dabba6e9c55962d2869cadcc54ba&query="+city+"&units="+units)
+  fetch("http://api.weatherstack.com/current?access_key=&query="+city+"&units="+units)
   .then(a => a.json())
   .then(response => {
     console.log(response);
@@ -67,7 +67,7 @@ function getWeather(){
 }
 
 function getData2(response){
-  fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+response.location.lat+"&lon="+response.location.lon+"&exclude=hourly,minutely&units=metric&appid=49cc8c821cd2aff9af04c9f98c36eb74")
+  fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+response.location.lat+"&lon="+response.location.lon+"&exclude=hourly,minutely&units=metric&appid=")
   .then(a => a.json() )
   .then(response2 =>{
     console.log(response2);
