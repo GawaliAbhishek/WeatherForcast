@@ -24,7 +24,7 @@ const nightimg="./assets/img/img.jpg";
 
 
 // Array of days and months for displaying the right day and month on Screen
-const days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+const days=['','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
 const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec']
 
 
@@ -54,9 +54,10 @@ function currentTime(response){
 
 /*Function getWeather() used to Connect the WeatherStack Api and send response to changeData() function
 so Accordingly changeData Function will take response from Api and change the Data on Screen
+for Space in name of city use %20
 */
 function getWeather(){
-  var city = "Victoria";
+  var city = cityName;
   var units ="m"
   fetch("http://api.weatherstack.com/current?access_key=61e6dabba6e9c55962d2869cadcc54ba&query="+city+"&units="+units)
   .then(a => a.json())
@@ -79,6 +80,7 @@ function getData2(response){
 }
 
 // calling getWeather() function
+let cityName=window.prompt("Enter city Name: ");
 getWeather();
 
 /*
@@ -143,6 +145,7 @@ function changeData(response,response2){
 // dailyData Update
 let todaysarr=getDayNo();
 console.log(todaysarr);
+console.log(days);
 currenttempEl.innerHTML=`
 <img src="http://openweathermap.org/img/wn/${response2.daily[todaysarr[0]].weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
 <div class="other">
