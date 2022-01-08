@@ -92,6 +92,9 @@ function changeData(response,response2){
   timezone.innerText=response.location.name+" , "+response.location.region +" "+response.location.country;
   countryEl.innerText="TimeZone : "+response.location.timezone_id;
   if(response.current.is_day==='yes'){
+    document.getElementById("marque").innerHTML=`
+    <marquee behavior="scroll" direction="left" style="color:rgb(15, 15, 15);font-family: cursive; font-size:20px; font-weight: bold; padding:5px ;">WELCOME To SSGMCE Weather Forcasting Page created By Nikhil,Mayur,Abhishek,Shubham </marquee>
+    `;
      imageEl.innerHTML=`
      body{
       background:url(${dayimg});
@@ -106,6 +109,9 @@ function changeData(response,response2){
   }
 
   else{
+    document.getElementById("marque").innerHTML=`
+    <marquee behavior="scroll" direction="left" style="color:rgb(248, 246, 246);font-family: cursive; font-size:20px; font-weight: bold; padding:5px ;">WELCOME To SSGMCE Weather Forcasting Page created By Nikhil,Mayur,Abhishek,Shubham </marquee>
+    `;
     imageEl.innerHTML=`
     body{
      background:url(${nightimg});
